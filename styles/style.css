@@ -59,6 +59,7 @@ body {
 .noodle_lurk {
     max-height: 75%;
     max-width: 75%;
+    background-image: url("https://noodle.draconequ.us/assets/lurk.png");
 }
 
 #btnControl {
@@ -75,3 +76,8 @@ body {
     content: url("https://noodle.draconequ.us/assets/lurk_googly.png");
 }
 
+#btnControl:hover + label > img {
+    max-height: 75%;
+    max-width: 75%;
+    content: url("https://noodle.draconequ.us/assets/lurk_googly.png");
+}
