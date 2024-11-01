@@ -63,3 +63,15 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
+.noodle_text{
+    text-align: center;
+}
+
+.lurk_image{
+    width: auto;
+    height: 10em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
