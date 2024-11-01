@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
 }
@@ -14,32 +15,19 @@ body {
     font-size: 35px;
 }
 
-/* Create three unequal columns that floats next to each other */
+/* Container for flexboxes */
+.row {
+    display: -webkit-flex;
+    display: flex;
+}
+
+/* Create three equal columns that sits next to each other */
 .column {
-    float: left;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
     padding: 10px;
-    height: 100%;
-}
-
-/* Left and right column */
-.column.side {
-    width: 38%;
-    height: 100%;
-}
-
-/* Middle column */
-.column.middle {
-    width: 24%;
-    height: 20%;
     text-align: center;
-
-}
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
 }
 
 /* Style the footer */
@@ -51,27 +39,24 @@ body {
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media (max-width: 600px) {
-    .column.side, .column.middle {
-        width: 100%;
+    .row {
+        -webkit-flex-direction: column;
+        flex-direction: column;
     }
 }
 
-.noodle_panel{
-    width: auto;
-    height: 25em;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
+.noodle_image{
+    max-height: 100%;
+    max-width: 100%;
 
+
+}
 .noodle_text{
     text-align: center;
 }
 
-.lurk_image{
-    width: auto;
-    height: 10em;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+
+.noodle_lurk {
+    max-height: 75%;
+    max-width: 75%;
 }
