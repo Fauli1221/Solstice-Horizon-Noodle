@@ -72,6 +72,6 @@ body {
 #btnControl:checked + label > img {
     max-height: 100%;
     max-width: 100%;
-    content: url("https://noodle.draconequ.us/assets/lurk googly.png");
+    content: url("https://noodle.draconequ.us/assets/lurk_googly.png");
 }
 
