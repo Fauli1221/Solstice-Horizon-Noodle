@@ -45,6 +45,7 @@ body {
     }
 }
 
+
 .noodle_image{
     max-height: 100%;
     max-width: 100%;
@@ -57,31 +58,23 @@ body {
 
 
 .noodle_lurk {
+    margin:auto;
     max-height: 50%;
-    max-width: 50%;
-    background-image: url("https://noodle.draconequ.us/assets/lurk.png");
-    background-repeat: no-repeat;
-
+    padding: 49px 0;
+    height: 320px;
+    width: auto;
 }
+
+.noodle_lurk_gif {
+    margin:auto;
+    max-height: 50%;
+    height: 320px;
+    width: auto;
+}
+
 
 #btnControl {
     display: none;
     max-height: 50%;
     max-width: 50%;
-}
-
-
-
-#btnControl:checked + label > img {
-    max-height: 50%;
-    max-width: 50%;
-    content: url("https://noodle.draconequ.us/assets/lurk-googly.gif");
-    background-repeat: no-repeat;
-}
-
-#btnControl:hover + label > img {
-    max-height: 50%;
-    max-width: 50%;
-    content: url("https://noodle.draconequ.us/assets/lurk_googly.png");
-    background-repeat: no-repeat;
 }
