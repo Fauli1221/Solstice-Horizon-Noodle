@@ -60,3 +60,18 @@ body {
     max-height: 75%;
     max-width: 75%;
 }
+
+#btnControl {
+    display: none;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+
+
+#btnControl:checked + label > img {
+    max-height: 100%;
+    max-width: 100%;
+    content: url("https://noodle.draconequ.us/assets/lurk googly.png");
+}
+
