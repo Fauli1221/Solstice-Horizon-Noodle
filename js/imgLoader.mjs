@@ -24,6 +24,14 @@ const attributeBlocklist = {};
 	attributeBlocklist[e] = true;
 });
 
+const imageLoadHandler = function () {
+	this.parentElement.getAttribute("types").split(",").forEach((e) => {
+		if (this.src.indexOf(e) + e.length == this.src.length) {
+			this.classList.add(`carousel-ail-${mimePool[e]}`);
+		};
+	});
+};
+
 for (let e of document.querySelectorAll("picture[types]")) {
 	if (!e.hasAttribute("srcroot")) {
 		console.warn(`[Image Loader] The element does not have a source root.\n`, e);
@@ -44,18 +52,20 @@ for (let e of document.querySelectorAll("picture[types]")) {
 			let appendedElement;
 			if (i0 == lastCriteria) {
 				appendedElement = document.createElement("img");
+				appendedElement.classList.add("carousel-ailview");
 				appendedElement.src = `${srcRoot}.${type}`;
 				let sourceAttrs = e.getAttributeNames();
 				for (let sourceAttr of sourceAttrs) {
 					if (attributeBlocklist[sourceAttr] && !passThruAttrs[sourceAttr]) {
 						continue;
 					};
-					if (sourceAttr.substring(0, 2) == "on") {
+					if (sourceAttr.substring(0, 2) == "on" && !passThruAttrs[sourceAttr]) {
 						continue;
 					};
 					appendedElement.setAttribute(sourceAttr, e.getAttribute(sourceAttr));
 					e.removeAttribute(sourceAttr);
 				};
+				appendedElement.addEventListener("load", imageLoadHandler);
 			} else {
 				appendedElement = document.createElement("source");
 				appendedElement.srcset = `${srcRoot}.${type}`;
