@@ -46,35 +46,28 @@ body {
 }
 
 
-.noodle_image{
+.noodle_image > img , .noodle_image > * {
     max-height: 100%;
     max-width: 100%;
-
-
 }
+
 .noodle_text{
     text-align: center;
 }
 
 
-.noodle_lurk {
-    margin:auto;
-    max-height: 50%;
+.noodle_lurk > img, .noodle_lurk_gif > img {
+    margin: auto;
+    width: auto;
     padding: 49px 0;
     height: 320px;
-    width: auto;
 }
-
-.noodle_lurk_gif {
-    margin:auto;
-    max-height: 50%;
-    height: 320px;
-    width: auto;
+.noodle_lurk > *, .noodle_lurk_gif > * {
+    max-height: 100%;
 }
 
 
 #btnControl {
     display: none;
-    max-height: 50%;
     max-width: 50%;
 }
