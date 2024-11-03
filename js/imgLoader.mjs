@@ -26,7 +26,7 @@ const attributeBlocklist = {};
 
 const imageLoadHandler = function () {
 	this.parentElement.getAttribute("types").split(",").forEach((e) => {
-		if (this.src.indexOf(e) + e.length == this.src.length) {
+		if (this.currentSrc.indexOf(e) + e.length == this.currentSrc.length) {
 			this.classList.add(`carousel-ail-${mimePool[e]}`);
 		};
 	});
