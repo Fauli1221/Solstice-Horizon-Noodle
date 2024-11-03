@@ -20,7 +20,7 @@ const mimePool = {
 	"apng": "apng"
 };
 const attributeBlocklist = {};
-`id,title,class,style,name,src,srcroot,types`.split(",").forEach((e) => {
+`id,title,class,style,name,src,srcroot,types,passthru`.split(",").forEach((e) => {
 	attributeBlocklist[e] = true;
 });
 
@@ -31,6 +31,10 @@ for (let e of document.querySelectorAll("picture[types]")) {
 	};
 	let types = e.getAttribute("types").split(",");
 	let srcRoot = e.getAttribute("srcroot");
+	let passThruAttrs = {};
+	e.getAttribute("passthru")?.toLowerCase().split(",").forEach((e) => {
+		passThruAttrs[e] = true;
+	});
 	for (let i0 = 0; i0 < types.length; i0 ++) {
 		let type = types[i0].trim();
 		let matchType = type.toLowerCase();
@@ -43,13 +47,14 @@ for (let e of document.querySelectorAll("picture[types]")) {
 				appendedElement.src = `${srcRoot}.${type}`;
 				let sourceAttrs = e.getAttributeNames();
 				for (let sourceAttr of sourceAttrs) {
-					if (attributeBlocklist[sourceAttr]) {
+					if (attributeBlocklist[sourceAttr] && !passThruAttrs[sourceAttr]) {
 						continue;
 					};
 					if (sourceAttr.substring(0, 2) == "on") {
 						continue;
 					};
 					appendedElement.setAttribute(sourceAttr, e.getAttribute(sourceAttr));
+					e.removeAttribute(sourceAttr);
 				};
 			} else {
 				appendedElement = document.createElement("source");
